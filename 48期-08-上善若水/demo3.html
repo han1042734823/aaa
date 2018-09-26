@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name='Keywords' content='关键词，关键字'>
+    <meta name='Description' content='描述信息'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        #wrap {
+            margin:50px auto;
+            border:1px dashed #999;
+        }
+        #wrap div{
+            width: 50px;
+            height: 50px;
+            line-height:50px;
+            text-align:center;
+            font-size:20px;
+            font-weight: bold;
+            background-color: #abcdef;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+    </div>
+    <script>
+        let oWrap = document.getElementById("wrap"),
+            num = 6,
+            mid = 0,
+            html = ""
+            ;
+
+        //计算 wrap 的宽高
+        //右箭头
+       /* if(num&1){
+            mid = (num-1)/2;
+        }else{
+            mid = num/2;
+        }
+        oWrap.style.width = (mid+1)*50 + "px";
+        oWrap.style.height = (num+1)*50 +"px";
+
+        //放div
+         for(let i=0;i<num+1;i++){
+             let x = i<=mid?i:num-i;
+             html +=`<div style="margin-left:${x*50}px;">${i}</div>`;
+         }
+        oWrap.innerHTML = html;*/
+
+        //计算 wrap 的宽高
+        //左箭头
+         /*if(num&1){
+             mid = (num-1)/2;
+         }else{
+             mid = num/2;
+         }
+         oWrap.style.width = (mid+1)*50 + "px";
+         oWrap.style.height = (num+1)*50 +"px";
+
+         //放div
+         for(let i=0;i<num+1;i++){
+             let x = i<=mid?mid-i:mid-(num-i);
+             html +=`<div style="margin-left:${x*50}px;">${i}</div>`;
+         }
+         oWrap.innerHTML = html;*/
+
+        //计算 wrap 的宽高
+        //上箭头
+         if(num&1){
+             mid = (num-1)/2;
+         }else{
+             mid = num/2;
+         }
+         oWrap.style.width = (num+1)*50 + "px";
+         oWrap.style.height = (mid+1)*50 +"px";
+
+         //放div
+         for(let i=0;i<num+1;i++){
+             let x = i<=mid?i:num-i;
+             html +=`<div style="float:left;margin-top:${x*50}px;">${i}</div>`;
+         }
+         oWrap.innerHTML = html;
+
+        //计算 wrap 的宽高
+        //下箭头
+        /* if(num&1){
+             mid = (num-1)/2;
+         }else{
+             mid = num/2;
+         }
+         oWrap.style.width = (mid+1)*50 + "px";
+         oWrap.style.height = (num+1)*50 +"px";
+
+         //放div
+         for(let i=0;i<num+1;i++){
+             let x = i<=mid?mid-i:mid-(num-i);
+             html +=`<div style="float:left;margin-top:${x*50}px;">${i}</div>`;
+         }
+         oWrap.innerHTML = html;*/
+
+
+    </script>
+</body>
+</html>

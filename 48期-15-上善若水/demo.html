@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name='Keywords' content='关键词，关键字'>
+    <meta name='Description' content='描述信息'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        #wrap > ul > li {
+            height: 50px;
+            line-height:50px;
+            padding-left:50px;
+            border-bottom:1px solid red;
+            font-size:14px;
+        }
+        #wrap > ul > li > .con{
+            margin-right:20px;
+        }
+        #wrap > ul > li > .text{
+            margin-right:20px;
+            display: none;
+        }
+        #wrap > ul > li > .btn{
+            display: inline-block;
+            width:50px;
+            height:22px;
+            line-height:22px;
+            text-align:center;
+            background-color: #000;
+            color:#fff;
+            cursor: pointer;
+        }
+        #wrap > ul > li > .btn2{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <ul>
+        <li>
+            <span class="con">点击修改</span>
+            <input type="text" class="text">
+            <span class="btn1 btn">修改</span>
+            <span class="btn2 btn">确认</span>
+        </li>
+        <li>
+            <span class="con">点击修改</span>
+            <input type="text" class="text">
+            <span class="btn1 btn">修改</span>
+            <span class="btn2 btn">确认</span>
+        </li>
+        <li>
+            <span class="con">点击修改</span>
+            <input type="text" class="text">
+            <span class="btn1 btn">修改</span>
+            <span class="btn2 btn">确认</span>
+        </li>
+        <li>
+            <span class="con">点击修改</span>
+            <input type="text" class="text">
+            <span class="btn1 btn">修改</span>
+            <span class="btn2 btn">确认</span>
+        </li>
+    </ul>
+</div>
+<script>
+    let oWrap = document.getElementById("wrap"),
+        aUpdate = document.querySelectorAll("ul li > .btn1"),//获取修改按钮
+        aQueren = document.querySelectorAll("ul li > .btn2"),//获取确认按钮
+        aCon = document.querySelectorAll("ul li > .con"),//获取内容
+        aText = document.querySelectorAll("ul li > .text"),//获取文本框
+        len=aCon.length
+    ;
+    //修改按钮的点击
+    for (let i=0;i<len;i++){
+        aUpdate[i].onclick = function(){
+            aUpdate[i].style.display = "none";
+            aCon[i].style.display = "none";
+            aText[i].style.display = "inline-block";
+            aQueren[i].style.display = "inline-block"
+        }
+    }
+    //确认按钮的点击
+    for(let i=0;i<len;i++){
+        aQueren[i].onclick = function() {
+            aUpdate[i].style.display = "inline-block";
+            aCon[i].style.display = "inline-block";
+            aText[i].style.display = "none";
+            aQueren[i].style.display = "none"
+
+            aCon[i].innerHTML = aText[i].value;
+        }
+    }
+</script>
+
+</body>
+</html>

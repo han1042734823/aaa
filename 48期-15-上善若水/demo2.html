@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name='Keywords' content='关键词，关键字'>
+    <meta name='Description' content='描述信息'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        #wrap {
+            width: 1000px;
+            margin:50px auto;
+        }
+        #wrap table{
+            width: 100%;
+            text-align:center;
+            border-color:#000 ;
+            border-collapse:collapse;
+            user-select: none;
+        }
+        #wrap table tbody .title{
+            background-color:#cc3366;
+            color:#fff;
+        }
+        #wrap table tbody .title td{
+            width: 250px;
+            height: 50px;
+            font-size:14px;
+        }
+        #wrap table tbody tr td{
+            height: 100px;
+            width: 250px;
+            font-size:16px;
+        }
+        #wrap table tbody tr td img{
+            height: 70px;
+        }
+        #wrap table tbody tr td > span:nth-of-type(2n+1){
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align:center;
+            background-color: #ddd;
+            font-size:14px;
+            cursor: pointer;
+        }
+        #wrap table tbody tr td > span:nth-of-type(2){
+            display: inline-block;
+            width: 50px;
+            height: 28px;
+            line-height: 28px;
+            border: 1px solid #ddd;
+            text-align:center;
+            font-size:12px;
+        }
+        #wrap .bottom{
+            margin-top:20px;
+            height: 50px;
+            line-height: 50px;
+            text-align:right;
+            font-size:14px;
+            background-color: #cc3366;
+            color:#fff;
+        }
+        #wrap .bottom p{
+            display: inline-block;
+            width: 250px;
+            text-align:left;
+        }
+        #wrap .bottom span{
+            font-size:16px;
+            color:#f4e5a9;
+            margin-right:5px;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <table border="1">
+        <tbody>
+            <tr class="title">
+                <td>商品</td>
+                <td>单价</td>
+                <td>数量</td>
+                <td>小计</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="img/shop1.jpg" alt="商品">
+                </td>
+                <td class="price">10</td>
+                <td>
+                    <span class="down">-</span><span class="count">0</span><span class="add">+</span>
+                </td>
+                <td class="sum">0</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="img/shop2.jpg" alt="商品">
+                </td>
+                <td class="price">20</td>
+                <td>
+                    <span class="down">-</span><span class="count">0</span><span class="add">+</span>
+                </td>
+                <td class="sum">0</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="img/shop3.jpg" alt="商品">
+                </td>
+                <td class="price">30</td>
+                <td>
+                    <span class="down">-</span><span class="count">0</span><span class="add">+</span>
+                </td>
+                <td class="sum">0</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="img/shop4.jpg" alt="商品">
+                </td>
+                <td class="price">25</td>
+                <td>
+                    <span class="down">-</span><span class="count">0</span><span class="add">+</span>
+                </td>
+                <td class="sum">0</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="bottom">
+        <p>已选中商品：<span class="sumCount">0</span>个</p>
+        <p>合计费用：<span class="sumPrice">0</span>¥</p>
+    </div>
+</div>
+<script>
+    data = [{  //模拟数据
+        price : 10,
+        count : 0,
+        sum : 0
+    },{
+        price : 20,
+        count : 0,
+        sum : 0
+    },{
+        price : 30,
+        count : 0,
+        sum : 0
+    },{
+        price : 25,
+        count : 0,
+        sum : 0
+    }];
+    let oWrap = document.getElementById("wrap"),
+        aAdd = oWrap.querySelectorAll("tr td .add"),//获取增加按钮
+        aDown = oWrap.querySelectorAll("tr td .down"),//获取减少按钮
+        aSum = oWrap.querySelectorAll("tr td.sum"),//获取总价
+        aCount = oWrap.querySelectorAll("tr td .count"),
+        oSumCount = oWrap.querySelector(".sumCount"),//所有数量
+        oSumPrice = oWrap.querySelector(".sumPrice"),//所有价格
+        len = aSum.length
+    ;
+    //计算的方法
+    function cal(i){
+        let sumPic = 0,
+            sumCou = 0
+        ;
+        aCount[i].innerHTML = data[i].count;
+        data[i].sum = data[i].count * data[i].price;
+        aSum[i].innerHTML = data[i].sum;
+
+        //计算总价 总数量
+        for(let j=0;j<len;j++){
+            sumCou += data[j].count;
+            sumPic += data[j].sum;
+        }
+        oSumPrice.innerHTML = sumPic+"";
+        oSumCount.innerHTML = sumCou+"";
+    }
+
+    for (let i=0;i<len;i++){
+        //点击增加
+        aAdd[i].onclick = function(){
+            data[i].count++;
+            cal(i);
+        }
+        //点击减少
+        aDown[i].onclick = function(){
+            data[i].count--;
+            if(data[i].count<=0)data[i].count=0;
+            cal(i);
+        }
+    }
+</script>
+
+</body>
+</html>

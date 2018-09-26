@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name='Keywords' content='关键词，关键字'>
+    <meta name='Description' content='描述信息'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+        #wrap{
+            width: 820px;
+            height: 400px;
+            margin:50px auto;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        #wrap .img{
+            position: relative;
+        }
+        #wrap .img .btn div{
+            position:absolute;
+            top:50%;
+            margin-top:-25px;
+            width: 30px;
+            height: 50px;
+            line-height: 50px;
+            text-align:center;
+            color:#fff;
+            background-color: rgba(0,0,0,.5);
+            cursor:pointer;
+            font-weight:bold;
+        }
+        #wrap .img .btn .left{
+            left:0;
+        }
+        #wrap .img .btn .right{
+            right:0;
+        }
+        #wrap .list{
+            width:100%;
+            height:350px;
+        }
+        #wrap .list li{
+            position:absolute;
+            top: 0;
+            left: 0;
+            width:100%;
+            height:100%;
+            display: none;
+        }
+        #wrap .list li img{
+            width: 100%;
+            height: 100%;
+        }
+        #wrap .list .show{
+            display: block;
+        }
+        #wrap .dec{
+            position: absolute;
+            left:0;
+            width: 100%;
+            height:20px;
+            line-height:20px;
+            text-align:center;
+            font-size:12px;
+            color:#fff;
+            background-color: rgba(0,0,0,.5);
+            font-weight:bold;
+        }
+        #wrap .dec1{
+            top:0;
+        }
+        #wrap .dec2{
+            bottom:0;
+        }
+        #wrap .tab{
+            width: 100%;
+            height:40px;
+            margin-top:20px;
+            text-align:center;
+        }
+        #wrap .tab p{
+            display: inline-block;
+            width:80px;
+            height: 40px;
+            line-height:40px;
+            text-align:center;
+            color:#fff;
+            background-color: #999;
+            font-size:14px;
+            cursor:pointer;
+        }
+        #wrap .tab p.active{
+            background-color: #f60;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="img">
+            <!-- 显示图片的区块 -->
+            <ul class="list">
+                <li class="show"><img src="img/1.jpg" alt="LOL"></li>
+                <li><img src="img/2.jpg" alt="LOL"></li>
+                <li><img src="img/3.jpg" alt="LOL"></li>
+                <li><img src="img/4.jpg" alt="LOL"></li>
+                <li><img src="img/5.jpg" alt="LOL"></li>
+            </ul>
+
+            <!-- 描述的p标签 -->
+            <p class="dec1 dec"><span>1</span>/5</p>
+            <p class="dec2 dec">太空秘宝</p>
+
+            <!-- 两边的箭头 -->
+            <div class="btn">
+                <div class="left"> < </div>
+                <div class="right"> > </div>
+            </div>
+        </div>
+        <div class="tab">
+            <p class="active">正常模式</p>
+            <p>循环模式</p>
+        </div>
+    </div>
+<script>
+    let aImg = document.querySelectorAll(".img .list li"),//图片li
+        oDec1 = document.querySelector(".img .dec1 span"),//第几张
+        oDec2 = document.querySelector(".img .dec2"),//描述
+        aBtn = document.querySelectorAll(".img .btn div"),//左右按钮
+        aTab = document.querySelectorAll("#wrap .tab p"),//模式
+        index = 0,//起始下标
+        lenImg = aImg.length-1,//li长度
+        arrText = ["太空秘宝","7周年战斗之夜","星海浩瀚无畏扬帆","战斗之夜邀请函","玉剑传说限时销售"],//描述
+        nomal = true
+    ;
+    //左按钮
+    aBtn[0].onclick = function(){
+        let noaImg = aImg[index];//表示当前的图片
+        noaImg.className="";
+        index--;
+        if(index<0){
+            index = nomal?0 :lenImg;
+        }
+        /*if(index<0){
+            index=0;
+        }*/
+        oDec1.innerHTML = index+1;
+        oDec2.innerHTML = arrText[index];
+        aImg[index].className="show";
+    }
+    //右按钮
+
+    aBtn[1].onclick = function(){
+        /*let noaImg = aImg[index];//表示当前的图片
+        noaImg.className="";//当前的隐藏*/
+        aImg[index].className="";
+        index++;//当前的加 1
+
+
+        if(index>lenImg){
+            index = nomal?lenImg:0;
+        }
+        /*if(nomal){
+            if(index>lenImg){//正常模式不能循环
+                index=lenImg;
+            }
+        }else{
+            if(index>lenImg){//正常模式不能循环
+                index=0;
+            }
+        }*/
+
+        oDec1.innerHTML = index+1;
+        oDec2.innerHTML = arrText[index];
+        /*let nextImg = aImg[index];//表示下一张图片
+        nextImg.className="show";//下一张图片显示*/
+        aImg[index].className="show";
+    }
+
+    //tab按钮的点击
+    aTab[0].onclick = function(){
+        //自身的变化
+        this.className="active";
+        aTab[1].className="";
+        nomal=true;
+    }
+    aTab[1].onclick = function(){
+        //自身的变化
+        this.className="active";
+        aTab[0].className="";
+        nomal=false;
+    }
+</script>
+</body>
+</html>

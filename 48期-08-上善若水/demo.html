@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>乘法口诀表</title>
+    <meta name='Keywords' content='关键词，关键字'>
+    <meta name='Description' content='描述信息'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+        body{
+            font-size:0;
+        }
+        li{
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            width:76px;
+            height: 36px;
+            border:2px solid #000;
+            display:inline-block;
+            line-height:36px;
+            text-align:center;
+            font-size:18px;
+            margin:2px;
+        }
+    </style>
+</head>
+<body>
+<ul id="wrap"></ul>
+<script>
+    let oWrap=document.getElementById("wrap");
+
+    for (let i=1;i<10;i++){
+        let html="";
+        for (let j=1;j<=i;j++){
+            html += "<li>"+j+"*"+i+"="+(i*j)+"</li>";
+        }
+        html += "<br>";
+        oWrap.innerHTML += html;
+    }
+    oWrap.innerHTML += "<hr>";
+    for (let i=9;i>0;i--){
+        for (let j=1;j<10;j++){
+            oWrap.innerHTML += `<li>${j}*${i}=${i*j}</li>`;
+            if(i===j){
+                oWrap.innerHTML += "<br>";
+                break;
+            }
+        }
+    }
+</script>
+</body>
+</html>

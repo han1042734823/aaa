@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name='Keywords' content='关键词，关键字'>
+    <meta name='Description' content='描述信息'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        #wrap {
+            width: 316px;
+            height:75px;
+            margin:50px auto 0;
+        }
+        #wrap span{
+            float:left;
+            font-size:14px;
+            color:#ff0000;
+            margin-top:27px;
+        }
+        #wrap ul{
+            float:left;
+            width: 102px;
+            height:20px;
+            margin-top:27px;
+        }
+        #wrap ul li{
+            float:left;
+            width:20px;
+            height: 20px;
+            background-image:url("img/star.png");
+            cursor: pointer;
+        }
+        #wrap p{
+            float:right;
+            width:120px;
+            height: 73px;
+            border: 1px dashed #aaa;
+            font-size:14px;
+        }
+        .pos{
+            background-position-y:66px;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <span>星际评分：</span>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <p>请合理的进行评价！</p>
+</div>
+<script>
+    let oWrap = document.getElementById("wrap"),
+        aLi = oWrap.getElementsByTagName("li"), //获取li
+        oP = oWrap.getElementsByTagName("p")[0],
+        aText = [                          //评价
+            "请合理的进行评价！",
+            "非常差",
+            "很差",
+            "还不错",
+            "很好",
+            "非常棒"
+        ],
+        index = -1 ,//下标
+        len=aLi.length
+    ;
+    //改变类 方法
+    function up(con){
+        for (let j=0;j<len;j++){
+            aLi[j].className = j<=con?"pos":"";
+        }
+    }
+    //鼠标移入的时候
+    for (let i=0;i<len;i++){
+        aLi[i].onmouseenter = function(){
+            up(i);
+            oP.innerHTML = aText[i+1];
+        }
+        //点击的时候
+        aLi[i].onclick = function(){
+            index = i;
+        }
+    }
+    //鼠标移除ul
+    oWrap.getElementsByTagName("ul")[0].onmouseleave = function(){
+       up(index);
+       oP.innerHTML = aText[index+1];
+    }
+
+
+
+
+
+
+    /*for (let j=0;j<=i;j++){
+                aLi[j].className = "pos";
+            }
+            for(let j=i+1;j<len;j++){
+                aLi[j].className = "";
+            }*/
+
+    /*aLi[i].className = "";
+           if(i<=index){
+               aLi[i].className = "pos";
+           }*/
+
+</script>
+
+</body>
+</html>

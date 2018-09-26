@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name='Keywords' content='关键词，关键字'>
+    <meta name='Description' content='描述信息'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+        #wrap{
+            width: 820px;
+            height: 400px;
+            margin:50px auto;
+        }
+        #wrap .con{
+            width:100%;
+            height:350px;
+            position: relative;
+        }
+        #wrap .con li{
+            position:absolute;
+            top: 0;
+            left: 0;
+            width:100%;
+            height:100%;
+            display: none;
+        }
+        #wrap .con li img{
+            width: 100%;
+            height: 100%;
+        }
+        #wrap .tab{
+            width: 100%;
+            height: 50px;
+        }
+        #wrap .con .show{
+            display: block;
+        }
+        #wrap .tab li{
+            width: 20%;
+            height: 100%;
+            float:left;
+            text-align: center;
+            line-height:50px;
+            font-size:14px;
+            background-color: #121112;
+            color:#cbcbcb;
+            cursor:pointer;
+        }
+        #wrap .tab .active{
+            background-color: #303030;
+            color:#e9c06c;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul class="con">
+            <li class="show"><img src="img/1.jpg" alt="LOL"></li>
+            <li><img src="img/2.jpg" alt="LOL"></li>
+            <li><img src="img/3.jpg" alt="LOL"></li>
+            <li><img src="img/4.jpg" alt="LOL"></li>
+            <li><img src="img/5.jpg" alt="LOL"></li>
+        </ul>
+        <ul class="tab">
+            <li class="active">太空秘宝</li>
+            <li>7周年战斗之夜</li>
+            <li>星海浩瀚无畏扬帆</li>
+            <li>战斗之夜邀请函</li>
+            <li>玉剑传说限时销售</li>
+        </ul>
+    </div>
+    <script>
+        let oCon = document.querySelectorAll("#wrap .con li"),//获取图片
+            oTab = document.querySelectorAll("#wrap .tab li"),//获取选项
+            count = 0
+        ;
+        for (let i = 0;i < oCon.length;i++){
+            oTab[i].onclick = function(){//循环添加点击事件
+               if(count!==i){
+                   oTab[count].className="";//移除上一个class名字
+                   oTab[i].className="active";//给点击的元素加上class
+
+                   oCon[count].className="";//同上
+                   oCon[i].className="show";//同上
+
+                   count = i;//把当前的i赋值给count
+               }
+            }
+        }
+    </script>
+</body>
+</html>
