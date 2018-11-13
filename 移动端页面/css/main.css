@@ -1,0 +1,151 @@
+@charset 'utf-8';
+
+
+/* main start */
+#main .m-brand{
+    margin-top:0.266rem;
+    width:100%;
+    height:6.133rem;
+    background-color:#fff;
+}
+#main .m-brand .m-b-top{
+    position: relative;
+    width:9.468rem;
+    height: 1.333rem;
+    margin:0 auto;
+    line-height: 1.333rem;
+}
+#main .m-brand .m-b-top > h2{
+    position: absolute;
+    top:0;
+    left:0;
+}
+#main .m-brand .m-b-top > .more{
+    position:absolute;
+    top:0;
+    right:0;
+}
+#main .m-brand .m-b-top > .more > a > span{
+    font-size:0.4rem;
+    color:#adadad;
+}
+#main .m-brand .m-b-top > .more > a >i{
+    position: relative;
+    top:0.03rem;
+    color:#adadad;
+}
+#main .m-brand .m-b-content{
+    width:100%;
+    height: 4.8rem;
+}
+#main .m-brand .m-b-content .b-c-left{
+    float: left;
+    width:54%;
+    height:100%;
+    background-color:#db6969;
+}
+#main .m-brand .m-b-content .b-c-left > a{
+    display: block;
+    width:100%;
+    height:100%;
+}
+#main .m-brand .m-b-content .b-c-left > a >img{
+    width:100%;
+    height:100%;
+}
+#main .m-brand .m-b-content .b-c-right{
+    float:right;
+    height:2.4rem;
+    width:46%;
+}
+#main .m-brand .m-b-content .b-c-right > a{
+    display: block;
+    width:100%;
+    height:100%;
+}
+#main .m-brand .m-b-content .c-r-t > a,#main .m-brand .m-b-content .c-r-b > a{
+    display: block;
+    width:100%;
+    height:100%;
+}
+#main .m-brand .m-b-content .c-r-t > a > img,#main .m-brand .m-b-content .c-r-b > a >img{
+    width:100%;
+    height:100%;
+}
+
+/*1*/
+#main .m-electric{
+    margin-top:0.266rem;
+    width:100%;
+    height:5.333rem;
+    background-color:#fff;
+}
+#main .m-electric .m-e-top{
+    width:100%;
+    height:1.333rem;
+}
+#main .m-electric .m-e-top > h2{
+    line-height:1.333rem;
+    text-align:center;
+}
+#main .m-electric .m-e-img{
+    width:100%;
+    height:4rem;
+    background-color:#50b2f3;
+}
+#main .m-electric .m-e-img > a{
+    display: block;
+    width: 100%;
+    height:100%;
+}
+#main .m-electric .m-e-img > a >img{
+    width:100%;
+    height:100%;
+}
+
+/*2*/
+#main .m-proList{
+    padding:0.266rem 0.266rem 0;
+    background-color:#fff;
+}
+#main .m-proList .m-ul-list{
+    float:left;
+    width:4.58rem;
+    height:6.4rem;
+    background-color:#fff;
+}
+#main .m-proList .m-ul-list:nth-of-type(2n){
+    margin-left:0.3rem;
+}
+#main .m-proList .m-ul-list > a{
+    display: block;
+
+}
+#main .m-proList .m-ul-list > a > .m-list-img{
+    width:100%;
+    height:4.533rem;
+    background-color:#f4f4f4;
+}
+#main .m-proList .m-ul-list > a > .m-list-img > img{
+    width:100%;
+    height:100%;
+}
+#main .m-proList .m-ul-list > a > .m-list-coutent{
+    margin-top:0.333rem;
+    width:100%;
+    height:1.866rem;
+    text-align:center;
+}
+.m-proList .m-ul-list > a > .m-list-coutent .details{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+    font-size:0.4rem;
+    font-weight: bold;
+}
+.m-proList .m-ul-list > a > .m-list-coutent .price{
+    color:#ff0000;
+    font-weight:bold;
+    font-size:0.4rem;
+}
+/* main end */

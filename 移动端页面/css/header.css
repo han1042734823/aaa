@@ -1,0 +1,100 @@
+@charset 'utf-8';
+
+/* header start */
+#app {
+    padding-top: 1.334rem;
+    padding-bottom:1.6rem;
+}
+#header .h-top{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 9.468rem;
+    height: 0.934rem;
+    padding:0.2rem 0.266rem;
+    background-color:#fff;
+    z-index:999;
+}
+#header .h-top .h-t-input{
+    width:100%;
+    height:100%;
+    background-color:#f8f8f8;
+}
+#header .h-top .h-t-input a{
+    display: block;
+    width:8.936rem;
+    height:100%;
+    padding:0 0.266rem;
+    line-height: 0.934rem;
+}
+#header .h-top .h-t-input a > i{
+    position: relative;
+    top: 0.05rem;
+}
+#header .h-top .h-t-input a > span{
+    color:#999;
+    padding-left:0.1rem;
+}
+/*1*/
+#header .h-banner{
+    height: 4.4rem;
+    width:100%;
+    background-color:#d8cbbd;
+}
+#header .h-banner .h-b-img{
+    width:100%;
+    height:100%;
+}
+#header .h-banner .h-b-img > a{
+    display: block;
+    width:100%;
+    height:100%;
+}
+#header .h-banner .h-b-img > a >img{
+    width:100%;
+    height:100%;
+}
+/*2*/
+#header .h-pShow{
+    height: 3.06rem;
+    width:8.936rem;
+    padding:0 0.533rem;
+    background-color:#fff;
+}
+#header .h-pShow .h-p-list{
+    display: flex;
+    width:100%;
+    height:100%;
+    flex-flow: row nowrap;
+    justify-content:space-between;
+}
+#header .h-pShow .h-p-list > .s-icon{
+    position: relative;
+    width:1.333rem;
+    height:2.26rem;
+    padding:0.4rem 0;
+}
+#header .h-pShow .h-p-list > .s-icon:active > a >span{
+    color:red;
+}
+.h-pShow .h-p-list > .s-icon > a{
+    display: block;
+    width:100%;
+    height:100%;
+}
+.h-pShow .h-p-list > .s-icon > a > img{
+    width:1.333rem;
+    height:1.333rem;
+}
+.h-pShow .h-p-list > .s-icon > a > span{
+    width:100%;
+    position: absolute;
+    bottom:0.4rem;
+    font-size:0.373rem;
+    text-align:center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+    color:#707070;
+}
+/* header end */
